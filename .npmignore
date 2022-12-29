@@ -1,4 +1,5 @@
 src
 tsconfig.json
-dist/coverage
+dist/test
+test
 *.tgz
