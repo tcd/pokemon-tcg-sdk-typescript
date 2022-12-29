@@ -1,2 +1,2 @@
-import * as PokemonTCG from './sdk';
-export { PokemonTCG };
+import * as PokemonTCG from './sdk'
+export { PokemonTCG }
