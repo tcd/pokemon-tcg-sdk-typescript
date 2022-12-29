@@ -2,101 +2,37 @@
 
 This is the TypeScript SDK for the [Pokemon TCG API](https://pokemontcg.io).
 
-# V2 Announcement
-Version 1 of this SDK is officially depricated. Version 2 stable release this SDK is scheduled to be released on **Friday, September 17th, 20201**. Version 1 will continue to receive support until then. **See the [migration guide](MIGRATING.md) for steps to update your app to use the latest supported version of the SDK**
+
+## V2 Announcement
+
+Version 1 of this SDK is officially deprecated.
+Version 2 stable release this SDK is scheduled to be released on **Friday, September 17th, 20201**.
+Version 1 will continue to receive support until then.
+**See the [migration guide](MIGRATING.md) for steps to update your app to use the latest supported version of the SDK**
+
 
 ## Installation
 
-**npm**
+### npm
 
-    npm install --save pokemon-tcg-sdk-typescript
-
-**yarn**
-
-    yarn add pokemon-tcg-sdk-typescript
-
-It is recommended to use an API key for version 2 of the API. By default, requests are limited to 20,000/day. Requests are rate limited to 1000 requests a day, and a maximum of 30 per minute.
-
-To use the SDK with an API key, create an account at https://dev.pokemontcg.io to grab an API key. Then set your API key to the environment variable POKEMONTCG_API_KEY in a .env file. Make sure to use this exact environment variable, otherwise the SDK will not be able to read the API key.
-
-## Class Definitions
-
-### Card
-
-```typescript
-  id: string;
-  name: string;
-  supertype: string;
-  subtypes: string[];
-  hp?: string;
-  types?: string[];
-  evolesFrom?: string;
-  evolvesTo?: string[];
-  rules?: string[];
-  ancientTrait?: IAncientTrait;
-  abilities?: IAbility[];
-  attacks?: IAttack[];
-  weaknesses?: IWeakness[];
-  resistances?: IResistance[];
-  retreatCost?: string[];
-  convertedRetreatCost?: number;
-  set: ISet;
-  number: string;
-  artist?: string;
-  rarity: string;
-  flavorText?: string;
-  nationalPokedexNumbers?: number[];
-  legalities: ILegality;
-  images: ICardImage;
-  tcgplayer?: ITCGPlayer;
-  cardmarket?: ICardmarket;
+```sh
+npm i pokemon-tcg-sdk-typescript
 ```
 
-### IAbility
+### yarn
 
-```typescript
-name: string;
-text: string;
-type: string;
+```sh
+yarn add pokemon-tcg-sdk-typescript
 ```
 
-### IAttack
+It is recommended to use an API key for version 2 of the API.
+By default, requests are limited to 20,000/day.
+Requests are rate limited to 1000 requests a day, and a maximum of 30 per minute.
 
-```typescript
-cost: string[];
-name: string;
-text: string;
-damage: string;
-convertedEnergyCost: string;
-```
+To use the SDK with an API key, create an account at https://dev.pokemontcg.io to grab an API key.
+Then set your API key to the environment variable POKEMONTCG_API_KEY in a .env file.
+Make sure to use this exact environment variable, otherwise the SDK will not be able to read the API key.
 
-### IResistance, IWeakness
-
-```typescript
-type: string;
-value: string;
-```
-
-### Set
-
-```typescript
-  id: string;
-  images: ISetImage;
-  legalities: ILegality;
-  name:  string;
-  printedTotal: number;
-  ptcgoCode: string;
-  releaseDate: string;
-  series:  string;
-  total: number;
-  updatedAt: string;
-```
-
-### IQuery
-
-```typescript
-{ name: string, value: string | number }
-```
 
 ## Method Definitions
 
@@ -114,9 +50,12 @@ Meta.allSubtypes(): Promise<string[]>
 Meta.allSupertypes(): Promise<string[]>
 ```
 
+
 ## Usage
 
-All of the calls return generic promises like `Promise<T>` or `Promise<T[]>`. The type is determined from the class making the call. The examples here are using the `Card` class but the usage for the other classes are the same.
+All of the calls return generic promises like `Promise<T>` or `Promise<T[]>`.
+The type is determined from the class making the call.
+The examples here are using the `Card` class but the usage for the other classes are the same.
 
 ```typescript
 import { PokemonTCG } from 'pokemon-tcg-sdk-typescript'
@@ -148,6 +87,7 @@ PokemonTCG.Card.all()
 ```
 
 ## Contributing
+
 * Open an issue
   * Describe what the SDK is missing and what changes you'd like to see implemented
   * **Ask clarifying questions**
@@ -162,5 +102,3 @@ PokemonTCG.Card.all()
 * Commit your changes (git commit -am 'Add some feature')
 * Push to the branch (git push origin my-new-feature)
 * Create a new Pull Request to `master`
-
-
